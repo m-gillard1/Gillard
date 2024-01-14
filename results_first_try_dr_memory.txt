@@ -1,0 +1,53 @@
+Dr. Memory version 2.6.0 build 0 built on Sep 21 2023 17:38:58
+Windows version: WinVer=105;Rel=2009;Build=22621;Edition=Core
+Dr. Memory results for pid 20276: "output.exe"
+Application cmdline: "output.exe"
+Recorded 124 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin64\suppress-default.txt
+
+Error #1: UNADDRESSABLE ACCESS beyond top of stack: reading 0x0000006d25bff7d0-0x0000006d25bff7d8 8 byte(s)
+# 0 ___chkstk_ms
+# 1 _pei386_runtime_relocator
+# 2 __tmainCRTStartup
+# 3 .l_start  
+# 4 ntdll.dll!RtlUserThreadStart
+Note: @0:00:01.243 in thread 19092
+Note: 0x0000006d25bff7d0 refers to 776 byte(s) beyond the top of the stack 0x0000006d25bffad8
+Note: instruction: or     $0x0000000000000000 (%rcx) -> (%rcx)
+
+Error #2: POSSIBLE LEAK 24 direct bytes 0x0000018180982590-0x00000181809825a8 + 0 indirect bytes
+# 0 replace_malloc                          [D:\a\drmemory\drmemory\common\alloc_replace.c:2580]
+# 1 libgcc_s_seh-1.dll!?                   +0x0      (0x00007ffcff4a54db <libgcc_s_seh-1.dll+0x154db>)
+# 2 ucrtbase.dll!_sys_nerr                 +0x2b2    (0x00007ffd23a43a83 <ucrtbase.dll+0x53a83>)
+# 3 ucrtbase.dll!o_free                    +0xdd     (0x00007ffd23a1006e <ucrtbase.dll+0x2006e>)
+# 4 ucrtbase.dll!execute_onexit_table      +0x3c     (0x00007ffd23a0da1d <ucrtbase.dll+0x1da1d>)
+# 5 libstdc++-6.dll!?                      +0x0      (0x00007ffcb429114c <libstdc++-6.dll+0x114c>)
+# 6 libstdc++-6.dll!?                      +0x0      (0x00007ffcb4291229 <libstdc++-6.dll+0x1229>)
+# 7 ntdll.dll!LdrpCallInitRoutine
+# 8 ntdll.dll!LdrShutdownProcess
+# 9 ntdll.dll!LdrShutdownProcess
+#10 ntdll.dll!RtlExitUserProcess
+#11 KERNEL32.dll!ExitProcessImplementation
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+	Error #   1:      2
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      1 unique,     2 total unaddressable access(es)
+      0 unique,     0 total uninitialized access(es)
+      0 unique,     0 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      0 unique,     0 total,      0 byte(s) of leak(s)
+      1 unique,     1 total,     24 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      2 potential error(s) (suspected false positives)
+         (details: C:\Users\marti\AppData\Roaming\Dr. Memory\DrMemory-output.exe.20276.000\potential_errors.txt)
+     19 unique,    19 total,   5587 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\marti\AppData\Roaming\Dr. Memory\DrMemory-output.exe.20276.000\results.txt
